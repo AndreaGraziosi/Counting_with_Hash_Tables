@@ -21,7 +21,7 @@ class LinkedList:
 
     while current != None and not found:
 
-      if current.data == item:
+      if current.data[0] == item:
         found = True
       else:
         current = current.next
@@ -32,6 +32,22 @@ class LinkedList:
     else:
       return -1
 
+  def update(self,key):
+
+    current = self.head
+
+    found = False
+    
+
+    while current != None and not found:
+
+      if current.data[0] == key:
+        found = True
+        tuple_to_insert = (key,current.data[1] + 1)
+        current.data = tuple_to_insert 
+      else:
+        current = current.next
+       
 
 
   def length(self):
@@ -50,8 +66,8 @@ class LinkedList:
     current = self.head
     
     if current == None:
-      print('The linked list is empty.')
+      pass
     else:
       for i in range(self.length()):
-        print(f'Node {i}: {current.data}')
+        print(f' {current.data[0]}:{current.data[1]}')
         current = current.next
